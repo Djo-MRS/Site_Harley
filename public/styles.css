@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nav-menu {
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.nav-menu a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.nav-menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+h1 {
+    color: #fff;
+}
+
+h2 {
+    color: black;
+}
+
+.form-container {
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.index-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.sell-content {
+    padding: 20px;
+}
+
+.connect-content {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 1px 0;
+    background-color: #000;
+    color: #fff;
+    position: static;
+    width: 100%;
+    bottom: 0;
+}
+header img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}

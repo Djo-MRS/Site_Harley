@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendre ma moto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <div class="header-content">
+            <h1>Vendre ma moto</h1>
+            <p>Présentation pour M1 EPITECH</p>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/">Présentation</a></li>
+                <li><a href="/sell">Vendre ma moto</a></li>
+                <li><a href="/connect">Se connecter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sell-content">
+        <h1>Vendre ma moto</h1>
+        <div class="form-container">
+            <label for="title">Titre</label>
+            <input type="text" id="title" name="title">
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+
+            <label for="price">Prix</label>
+            <input type="text" id="price" name="price">
+
+            <button onclick="createMoto()">Créer</button>
+            <button onclick="updateMoto()">Modifier</button>
+            <button onclick="deleteMoto()">Supprimer</button>
+        </div>
+        <div class="moto-list">
+            <h2>Motos à vendre</h2>
+            <ul id="motoList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let motos = [];
+        let currentMotoIndex = null;
+
+        function createMoto() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            
+            if (title && description && price) {
+                motos.push({ title, description, price });
+                renderMotoList();
+                clearForm();
+            } else {
+                alert('Veuillez remplir tous les champs.');
+            }
+        }
+
+        function updateMoto() {
+            if (currentMotoIndex !== null) {
+                motos[currentMotoIndex].title = document.getElementById('title').value;
+                motos[currentMotoIndex].description = document.getElementById('description').value;
+                motos[currentMotoIndex].price = document.getElementById('price').value;
+                
+                renderMotoList();
+                clearForm();
+                currentMotoIndex = null;
+            } else {
+                alert('Veuillez sélectionner une moto à modifier.');
+            }
+        }
+
+        function deleteMoto() {
+            if (currentMotoIndex !== null) {
+                motos.splice(currentMotoIndex, 1);
+                renderMotoList();
+                clearForm();
+                currentMotoIndex = null;
+            } else {
+                alert('Veuillez sélectionner une moto à supprimer.');
+            }
+        }
+
+        function editMoto(index) {
+            currentMotoIndex = index;
+            const moto = motos[index];
+            document.getElementById('title').value = moto.title;
+            document.getElementById('description').value = moto.description;
+            document.getElementById('price').value = moto.price;
+        }
+
+        function renderMotoList() {
+            const motoList = document.getElementById('motoList');
+            motoList.innerHTML = '';
+
+            motos.forEach((moto, index) => {
+                const li = document.createElement('li');
+                li.textContent = `Titre: ${moto.title}, Description: ${moto.description}, Prix: ${moto.price}`;
+                li.onclick = () => editMoto(index);
+                motoList.appendChild(li);
+            });
+        }
+
+        function clearForm() {
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('price').value = '';
+        }
+    </script>
+<footer>
+    <p>&copy; 2024 Harley Davidson. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
